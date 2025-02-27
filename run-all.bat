@@ -1,0 +1,16 @@
+@echo off
+echo Starting GitCommit applications...
+
+echo Starting Server...
+start cmd /k "cd GitCommit.Server && dotnet run"
+
+echo Waiting for server to start...
+timeout /t 5
+
+echo Starting Client...
+start cmd /k "cd GitCommit.Client && dotnet run"
+
+echo Starting Admin Panel...
+start cmd /k "cd GitCommit.ServerAdmin && dotnet run"
+
+echo All applications started.

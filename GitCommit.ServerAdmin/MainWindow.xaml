@@ -10,6 +10,7 @@
         Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
@@ -229,3 +230,47 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
+                </Grid>
+                
+                <!-- Settings Panel -->
+                <Grid x:Name="settingsPanel" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Grid.Row="0" Text="Settings" FontSize="24" FontWeight="SemiBold" Margin="0,0,0,20"/>
+                    
+                    <!-- Server Settings -->
+                    <StackPanel Grid.Row="1">
+                        <TextBlock Text="Server Configuration" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Server URL:" VerticalAlignment="Center"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtServerUrl" Margin="0,5" Padding="5"/>
+                            
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Log Directory:" VerticalAlignment="Center"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtLogDirectory" Margin="0,5" Padding="5"/>
+                            
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Auto-Export Logs:" VerticalAlignment="Center"/>
+                            <CheckBox Grid.Row="2" Grid.Column="1" x:Name="chkAutoExportLogs" Margin="0,5" VerticalAlignment="Center"/>
+                        </Grid>
+                        
+                        <Button x:Name="btnSaveSettings" Content="Save Settings" HorizontalAlignment="Left" Padding="10,5" Margin="0,10,0,0" Click="btnSaveSettings_Click"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
