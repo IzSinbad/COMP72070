@@ -1,0 +1,103 @@
+<Window x:Class="GitCommit.Client.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GitCommit.Client.Views"
+        mc:Ignorable="d"
+        Title="GitCommit - Login" Height="500" Width="400"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Background="{StaticResource PrimaryBrush}" Padding="20">
+            <TextBlock Text="GitCommit" FontSize="28" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+            <TextBlock Text="Where code meets connection" FontSize="14" Foreground="White" Opacity="0.8" HorizontalAlignment="Center"/>
+        </StackPanel>
+        
+        <!-- Login Form -->
+        <Grid Grid.Row="1" Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Login Tab -->
+            <TextBlock Grid.Row="0" Text="Login" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,20" Foreground="{StaticResource TextBrush}"/>
+            
+            <!-- Username -->
+            <StackPanel Grid.Row="1" Margin="0,0,0,15">
+                <TextBlock Text="Username" Margin="0,0,0,5" Foreground="{StaticResource TextBrush}"/>
+                <TextBox x:Name="txtUsername" Style="{StaticResource ModernTextBox}"/>
+            </StackPanel>
+            
+            <!-- Password -->
+            <StackPanel Grid.Row="2" Margin="0,0,0,15">
+                <TextBlock Text="Password" Margin="0,0,0,5" Foreground="{StaticResource TextBrush}"/>
+                <PasswordBox x:Name="txtPassword" Style="{StaticResource ModernPasswordBox}"/>
+            </StackPanel>
+            
+            <!-- Login Button -->
+            <Button Grid.Row="3" x:Name="btnLogin" Content="Login" Style="{StaticResource PrimaryButton}" Margin="0,10,0,0" Click="btnLogin_Click"/>
+            
+            <!-- Error Message -->
+            <TextBlock Grid.Row="4" x:Name="txtErrorMessage" Foreground="Red" TextWrapping="Wrap" Margin="0,10,0,0" Visibility="Collapsed"/>
+            
+            <!-- Register Link -->
+            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <TextBlock Text="Don't have an account? " Foreground="{StaticResource LightTextBrush}"/>
+                <TextBlock x:Name="txtRegisterLink" Text="Register" Foreground="{StaticResource SecondaryBrush}" Cursor="Hand" MouseLeftButtonDown="txtRegisterLink_MouseLeftButtonDown"/>
+            </StackPanel>
+            
+            <!-- Register Form (Initially Hidden) -->
+            <StackPanel Grid.Row="6" x:Name="registerPanel" Visibility="Collapsed" Margin="0,20,0,0">
+                <TextBlock Text="Register" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,20" Foreground="{StaticResource TextBrush}"/>
+                
+                <!-- Register Username -->
+                <TextBlock Text="Username" Margin="0,0,0,5" Foreground="{StaticResource TextBrush}"/>
+                <TextBox x:Name="txtRegisterUsername" Style="{StaticResource ModernTextBox}" Margin="0,0,0,15"/>
+                
+                <!-- Register Password -->
+                <TextBlock Text="Password" Margin="0,0,0,5" Foreground="{StaticResource TextBrush}"/>
+                <PasswordBox x:Name="txtRegisterPassword" Style="{StaticResource ModernPasswordBox}" Margin="0,0,0,15"/>
+                
+                <!-- Bio -->
+                <TextBlock Text="Bio" Margin="0,0,0,5" Foreground="{StaticResource TextBrush}"/>
+                <TextBox x:Name="txtBio" Style="{StaticResource ModernTextBox}" Margin="0,0,0,15" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+                
+                <!-- Gender -->
+                <TextBlock Text="Gender" Margin="0,0,0,5" Foreground="{StaticResource TextBrush}"/>
+                <ComboBox x:Name="cmbGender" Margin="0,0,0,15" Padding="10,8">
+                    <ComboBoxItem Content="Male"/>
+                    <ComboBoxItem Content="Female"/>
+                    <ComboBoxItem Content="Non-binary"/>
+                    <ComboBoxItem Content="Other"/>
+                </ComboBox>
+                
+                <!-- Age -->
+                <TextBlock Text="Age" Margin="0,0,0,5" Foreground="{StaticResource TextBrush}"/>
+                <TextBox x:Name="txtAge" Style="{StaticResource ModernTextBox}" Margin="0,0,0,15"/>
+                
+                <!-- Register Button -->
+                <Button x:Name="btnRegister" Content="Register" Style="{StaticResource SecondaryButton}" Margin="0,10,0,0" Click="btnRegister_Click"/>
+                
+                <!-- Register Error Message -->
+                <TextBlock x:Name="txtRegisterErrorMessage" Foreground="Red" TextWrapping="Wrap" Margin="0,10,0,0" Visibility="Collapsed"/>
+            </StackPanel>
+            
+            <!-- Version Info -->
+            <TextBlock Grid.Row="7" Text="v1.0.0" Foreground="{StaticResource LightTextBrush}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,20,0,0"/>
+        </Grid>
+    </Grid>
+</Window>
